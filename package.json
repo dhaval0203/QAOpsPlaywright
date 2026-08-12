@@ -1,0 +1,39 @@
+{
+  "name": "playwright_automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install-browsers": "cross-env PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright install",
+    "test": "cross-env PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright test",
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep @Web",
+    "apiTests": "npx playwright test --grep @API",
+    "safariNewConfig": "npx playwright test --config=playwright.config1.js --project=safari",
+    "cucumber-regression": "npx cucumber-js --tags \"@Regression\" --retry 1 --exit --format html:cucumber-report.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@azure/identity": "^4.13.1",
+    "@azure/playwright": "^1.1.6",
+    "@cucumber/cucumber": "^13.2.1",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "allure-playwright": "^3.10.2",
+    "cross-env": "^10.1.0",
+    "exceljs": "^3.4.0",
+    "typescript": "^7.0.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "mysql2": "^3.22.5",
+    "playwright": "^1.61.1",
+    "playwright-core": "^1.61.1",
+    "undici-types": "^8.3.0"
+  },
+  "description": ""
+}

@@ -1,0 +1,12 @@
+[
+    {
+        "userEmail"         : "dhaval.ghodasara@testmail.com",
+        "password"          :  "Root@1234",
+        "product_name"      :  "ZARA COAT 3",
+        "crediCardNumber"   :  "1234 5678 5678 1234",
+        "ExpiryMonth"       :  "03",
+        "ExpiryDate"        :  "02",
+        "cvv"               :  "584",
+        "CardName"          :  "Kriva"
+    }    
+]
