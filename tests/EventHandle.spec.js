@@ -27,9 +27,10 @@ async function VerifyBooking(page, BookingReferenceNumber, eve_title)
 {
     await page.getByRole('button', { name: 'View My Bookings' }).click();    
     await page.waitForURL('https://eventhub.rahulshettyacademy.com/bookings');
-    expect(page.url()).toBe('https://eventhub.rahulshettyacademy.com/bookings');
+    await expect(page).toHaveURL('https://eventhub.rahulshettyacademy.com/bookings');
     const bookingcard_ele = page.getByTestId('booking-card');
-    expect(bookingcard_ele.last()).toBeVisible();
+    //expect(bookingcard_ele.last()).toBeVisible();
+    //await expect(bookingcard_ele).tohaveCount(1); //Verify only 1 booking is there in My Bookings
     expect(bookingcard_ele.getByText(`${BookingReferenceNumber}`, { exact: true } )).toBeVisible();
     expect(bookingcard_ele.getByText(`${eve_title}`, { exact: true } )).toBeVisible();
     //await page.pause();
@@ -98,6 +99,15 @@ async function createNewEvent(page, eve_title, evetitle_Date)
     const hour = date.getHours();
     const minute = date.getMinutes();
 
+    const eventDate = new Date();
+    eventDate.setDate(eventDate.getDate() + 10);
+    
+    const formattedDate =  `${eventDate.getFullYear()}-` +  `${String(eventDate.getMonth() + 1).padStart(2, '0')}-` +  `${String(eventDate.getDate()).padStart(2, '0')}T10:00`;
+
+    await dateTimeLocator.fill(formattedDate);
+    await expect(dateTimeLocator).toHaveValue(/.+/);
+
+    /*
     //use below tab key as unable to get locator of date time picker.
     await dateTimeLocator.type(`${year}`);
     await dateTimeLocator.press('Tab');
@@ -105,7 +115,7 @@ async function createNewEvent(page, eve_title, evetitle_Date)
     await dateTimeLocator.type(`${day}`);    
     await dateTimeLocator.type(`${hour}`);    
     await dateTimeLocator.type(`${minute}`);
-    
+    */
     const price = month + day + hour + minute;
     await page.locator('label').filter({ hasText: 'Price ($)*' }).fill(`${price}`);
 

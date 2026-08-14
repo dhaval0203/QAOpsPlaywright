@@ -22,8 +22,12 @@ After(async function ()
 //npx cucumber-js --tags "@Regression" --exit
 //npx cucumber-js features/ErrorValidations.feature --exit
 //npx cucumber-js --tags "@Regression" --retry 1 --exit --format html:cucumber-report.html
-//az login
+
+//To run tests on Azure
+// az login
 //$env:PLAYWRIGHT_SERVICE_URL="wss://eastus.api.playwright.microsoft.com/playwrightworkspaces/68ac79ad-92d1-4d2a-80eb-964e5ecb1736/browsers"
+//npx playwright test --config=playwright.service.config.js --workers=4
+//npx playwright test /tests/Download-UploadExcelFile_Test.spec.js --config=playwright.service.config.js //For single test execution
 
 //user id 
 //Go to - >  Microsoft Entra ID -> Left Panel -> Manage -> Users -> Select User -> Object ID

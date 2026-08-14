@@ -44,10 +44,15 @@ test('Download Upload Excel Files', async ({page}) =>
     const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Download' }).click();
     const download = await downloadPromise;
+    /*
     console.log(await download.path());
     console.log(await download.suggestedFilename());
     const filepath = "C:\\Users\\Dhaval\\Downloads\\download.xlsx";
+    
+    */
+    const filepath = test.info().outputPath(download.suggestedFilename());
     await download.saveAs(filepath);
+    
     await excelTest(textSearch,textReplace,{rowChange:0,columnChange:2},filepath);    
     //attribut must be type="file" to use setInputFiles method
     await page.locator('#fileinput').setInputFiles(filepath); 

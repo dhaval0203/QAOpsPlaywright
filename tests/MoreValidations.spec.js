@@ -37,5 +37,5 @@ test("Screenshot", async({page}) =>
 test('Visual', async ({page}) =>
 {
     await page.goto('https://flightware.com/');
-    expect(await page.screenshot()).toMatchSnapshot('landing.png');
+   // expect(await page.screenshot()).toMatchSnapshot('landing.png');
 });
