@@ -22,6 +22,7 @@ test('Page Playwright test', async ()=>
     //await page.locator('#userEmail').fill(userEmail);
     const page = await webContext.newPage();
     await page.goto("https://rahulshettyacademy.com/client/");
+    await page.waitForLoadState('networkidle');
     await page.locator('.card-body b').last().waitFor();
     
     await page.locator('.card-body').filter({hasText:'ZARA COAT 3'}).getByRole('button',{name:'Add To Cart'}).click();
